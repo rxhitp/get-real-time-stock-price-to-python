@@ -1,0 +1,15 @@
+import requests
+from bs4 import BeautifulSoup
+import time
+
+ticker = 'INFY'
+url = f'https://www.google.com/finance/quote/{ticker}:NSE'
+
+
+for i in range(10000000000000000000000000000000000):
+  response = requests.get(url)
+  soup = BeautifulSoup(response.text, 'html.parser')
+  class1= "YMlKec fxKbKc"
+  price = float(soup.find(class_=class1).text.strip()[1:].replace(",",""))
+  print(price)
+  time.sleep(10)
